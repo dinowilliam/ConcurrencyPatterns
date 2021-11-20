@@ -3,9 +3,10 @@
 namespace ActiveObjectPattern {
     public class PrinterTask : ActiveObject {
         
-        public void Print(string Message) {
+        public void Print(string Message, ConsoleColor Color) {
             Accept( () => {
-                        Console.WriteLine(Message);
+                        Console.ForegroundColor = Color;
+                        Console.Write(Message);
                     }
             );
         }
