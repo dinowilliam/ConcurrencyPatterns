@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ActiveObjectPattern\ActiveObjectPattern.csproj" />
+    <ProjectReference Include="..\MonitorObject\MonitorObjectPattern.csproj" />
   </ItemGroup>
 
 </Project>
