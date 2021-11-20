@@ -38,7 +38,7 @@ namespace ConcurrencyPatterns.POCS
             var monitorWriter3 = new MonitorObject(WriteA);
             var monitorWriter4 = new MonitorObject(WriteG);
 
-            monitorWriter1.AddMonitoredResource(sharedObject);
+            //monitorWriter1.AddMonitoredResource(sharedObject);
             monitorWriter2.AddMonitoredResource(sharedObject);
             monitorWriter3.AddMonitoredResource(sharedObject);
             monitorWriter4.AddMonitoredResource(sharedObject);
@@ -48,15 +48,15 @@ namespace ConcurrencyPatterns.POCS
             monitorWriter3.Run();
             monitorWriter4.Run();
 
-            monitorWriter1.Wait();
-            monitorWriter2.Wait();
-            monitorWriter3.Wait();
-            monitorWriter4.Wait();
+            //monitorWriter1.Wait();
+            //monitorWriter2.Wait();
+            //monitorWriter3.Wait();
+            //monitorWriter4.Wait();
         }
 
         private void WriteC() {
             
-            for (int i = 0; i < 50000; i++){
+            for (int i = 0; i < 150; i++){
                 Console.ForegroundColor = ConsoleColor.Blue;
                 Console.Write("C");
                 Thread.Sleep(sharedObject.RandomNumber());
@@ -66,7 +66,7 @@ namespace ConcurrencyPatterns.POCS
 
         private void WriteT() {                        
 
-            for (int i = 0; i < 50000; i++){
+            for (int i = 0; i < 150; i++){
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.Write("T");
                 Thread.Sleep(sharedObject.RandomNumber());
@@ -76,7 +76,7 @@ namespace ConcurrencyPatterns.POCS
 
         private void WriteA() {
 
-            for (int i = 0; i < 50000; i++){
+            for (int i = 0; i < 150; i++){
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("A");
                 Thread.Sleep(sharedObject.RandomNumber());
@@ -86,7 +86,7 @@ namespace ConcurrencyPatterns.POCS
 
         private void WriteG() {
 
-            for (int i = 0; i < 50000; i++) {
+            for (int i = 0; i < 150; i++) {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("G");
                 Thread.Sleep(sharedObject.RandomNumber());
