@@ -21,8 +21,9 @@ namespace ConcurrencyPatterns {
             Console.WriteLine("|      1 - ActiveObject Concurrency Pattern                                    |");            
             Console.WriteLine("|      2 - MonitorObject Concurrency Pattern                                   |");
             Console.WriteLine("|      3 - Concurrency Pattern                                                 |");
-            Console.WriteLine("|      4 - Decorator Pattern                                                   |");
-            Console.WriteLine("|      5 - Facade Pattern                                                      |");
+            Console.WriteLine("|      4 - Concurrency Pattern                                                 |");
+            Console.WriteLine("|      5 - Concurrency Pattern                                                 |");
+            Console.WriteLine("|      0 - Exit                                                                |");
             Console.WriteLine("|******************************************************************************|");
             Console.WriteLine("| Choose one option to continue...                                             |");
             Console.WriteLine("|******************************************************************************|");
@@ -32,14 +33,14 @@ namespace ConcurrencyPatterns {
             ExecuteTheOption(option);
         }
 
-        public static void ExecuteTheOption(string option)
-        {
-            if (!String.IsNullOrWhiteSpace(option))
-            {
+        public static void ExecuteTheOption(string option) {
+        
+            if (!String.IsNullOrWhiteSpace(option)) {
+
                 int value = Int32.Parse(option);
 
-                switch (value)
-                {
+                switch (value) {
+
                     case 1:
                         var pocActiveObject = new PocActiveObject();
                         pocActiveObject.StartActiveObjectTest();
@@ -70,13 +71,16 @@ namespace ConcurrencyPatterns {
                         DrawMainScreen();
                         break;
 
+                    case 0:
+                        Environment.Exit(0);
+                        break;
+
                     default:
                         DrawMainScreen();
                         break;
                 }
             }
-            else
-            {
+            else {
                 DrawMainScreen();
             }
         }
