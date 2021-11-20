@@ -17,9 +17,9 @@ namespace MonitorObjectPattern {
        
         public void Run() {
             
-            Action onThreadCompleted = () => {
+            Action onThreadCompletedUnlockResources = () => {
                 
-                //On complete action
+                //On complete unlock resources
                 UnlockResources();
             };
 
@@ -28,16 +28,17 @@ namespace MonitorObjectPattern {
                 try {                    
                     //Block resources
                     LockResources();
+
+                    //Execute procedure
                     this.threadStart.Invoke();                                                                                                      
                 }
                 catch (ThreadInterruptedException e) { /* Ignore it */}
                 finally {
-                    onThreadCompleted();
+                    onThreadCompletedUnlockResources();
                 }
             });
 
-            t.Start();
-            t.Join();
+            t.Start();            
         }
         
         private void LockResources(){
